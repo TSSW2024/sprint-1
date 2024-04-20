@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import '../../depositar/depositar_dinero.dart';
 
 class SaldoWidget extends StatefulWidget {
   final double saldo;
@@ -86,8 +87,13 @@ class SaldoWidgetState extends State<SaldoWidget> {
                   Container(
                     width: 120,
                     child: ElevatedButton(
+                      // Asegúrate de que ElevatedButton sea el hijo del Container
                       onPressed: () {
-                        Navigator.pushNamed(context, '/depositar');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DepositarDinero()),
+                        );
                       },
                       child: Text("Depositar",
                           style: const TextStyle(
