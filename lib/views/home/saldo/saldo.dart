@@ -7,10 +7,10 @@ class SaldoWidget extends StatefulWidget {
   const SaldoWidget({Key? key, required this.saldo}) : super(key: key);
 
   @override
-  _SaldoWidgetState createState() => _SaldoWidgetState();
+  SaldoWidgetState createState() => SaldoWidgetState();
 }
 
-class _SaldoWidgetState extends State<SaldoWidget> {
+class SaldoWidgetState extends State<SaldoWidget> {
   bool isVisible = false;
 
   void toggleVisibility() {
@@ -27,12 +27,12 @@ class _SaldoWidgetState extends State<SaldoWidget> {
       child: Align(
         alignment: Alignment.center,
         child: Container(
-          margin: EdgeInsets.only(top: 100),
+          // margin: const EdgeInsets.only(top: 100), // Esta línea ha sido eliminada
           width: 373,
           height: 100,
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: Color(0xFF141738),
+            color: const Color(0xFF141738),
             border: Border.all(
               color: Colors.black,
               width: 2,
@@ -70,30 +70,31 @@ class _SaldoWidgetState extends State<SaldoWidget> {
                 children: [
                   if (isVisible)
                     Text(formatCurrency.format(widget.saldo),
-                        style: TextStyle(fontSize: 36, color: Colors.white))
+                        style:
+                            const TextStyle(fontSize: 36, color: Colors.white))
                   else
                     Row(
                       children: List.generate(
                           6,
-                          (index) => Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 4.0),
+                          (index) => const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4.0),
                                 child: Text("*",
                                     style: TextStyle(
                                         fontSize: 36, color: Colors.white)),
                               )),
                     ),
                   Container(
-                    width: 120, // Ancho específico para el botón
+                    width: 120,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '/depositar');
                       },
                       child: Text("Depositar",
-                          style: TextStyle(color: Colors.white, fontSize: 16)),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16)),
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Color(0xFF515DE2)),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            const Color(0xFF515DE2)),
                       ),
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../home/saldo/saldo.dart';
 
 class CarteraScreen extends StatelessWidget {
   const CarteraScreen({super.key});
@@ -11,9 +12,9 @@ class CarteraScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text('Cartera page'),
+            SaldoWidget(saldo: 1000.0),
           ],
         ),
       ),
