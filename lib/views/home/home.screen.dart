@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import './saldo/saldo.dart'; // Asegúrate de reemplazar esto con la ruta correcta a tu archivo SaldoWidget
 
 import '../../viewmodels/auth.viewmodel.dart';
 import '../profile/profile.screen.dart';
@@ -33,7 +34,9 @@ class HomeScreenState extends State<HomeScreen> {
     {
       'icon': Icons.account_balance_wallet,
       'label': 'Cartera',
-      'screen': const CarteraScreen(),
+      'screen': const SaldoWidget(
+          saldo:
+              1000.0), // Asegúrate de reemplazar 1000.0 con el saldo real de tu aplicación
     },
     {
       'icon': Icons.person,
