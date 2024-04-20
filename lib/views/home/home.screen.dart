@@ -21,15 +21,16 @@ class HomeScreenState extends State<HomeScreen> {
   // Define una lista de mapas para los elementos del BottomNavigationBar
   final List<Map<String, dynamic>> _bottomNavItems = [
     {
-      'icon': Icons.explore,
-      'label': 'Descubrir',
-      'screen': const DescubrirScreen(),
-    },
-    {
-      'icon': Icons.shopping_cart,
+      'icon': Icons.bar_chart, 
       'label': 'Mercado',
       'screen': const MercadoScreen(),
     },
+    {
+      'icon': Icons.diamond, 
+      'label': 'Descubrir',
+      'screen': const DescubrirScreen(),
+    },
+    
     {
       'icon': Icons.account_balance_wallet,
       'label': 'Cartera',
@@ -73,21 +74,29 @@ class HomeScreenState extends State<HomeScreen> {
         children:
             _bottomNavItems.map((item) => item['screen'] as Widget).toList(),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: _bottomNavItems.map((item) {
-          return BottomNavigationBarItem(
-            icon: Icon(item['icon']),
-            label: item['label'],
-          );
-        }).toList(),
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        backgroundColor: Colors.blue,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white,
-        selectedFontSize: 14,
-        unselectedFontSize: 12,
-        type: BottomNavigationBarType.fixed,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+          bottomLeft: Radius.circular(20), 
+          bottomRight: Radius.circular(20), 
+        ),
+        child: BottomNavigationBar(
+          items: _bottomNavItems.map((item) {
+            return BottomNavigationBarItem(
+              icon: Icon(item['icon']),
+              label: item['label'],
+            );
+          }).toList(),
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          backgroundColor: Colors.blue,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white,
+          selectedFontSize: 14,
+          unselectedFontSize: 12,
+          type: BottomNavigationBarType.fixed,
+        ),
       ),
     );
   }
