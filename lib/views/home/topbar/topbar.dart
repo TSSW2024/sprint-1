@@ -1,42 +1,64 @@
+import 'package:ejemplo_1/views/home/topbar/buscar_monedas.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
-void main() {
-  runApp(MyApp());
-}
-
+import 'package:ejemplo_1/views/home/topbar/ajustes.dart';
+import 'package:ejemplo_1/views/home/topbar/Acerca_de_nosotros.dart';
+void main() =>runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return const MaterialApp(
+      title: "Home",
+      home: Inicio(),
+    );
+  }
+}
+class Inicio extends StatefulWidget {
+  const Inicio({super.key});
+
+  @override
+  State<Inicio> createState() => _InicioState();
+}
+
+class _InicioState extends State<Inicio> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 20, 23, 56),
-          title: Text('utem trading',style: TextStyle(color: Colors.white,),),
+      leading:IconButton(
+              icon: const ImageIcon(
+                AssetImage('assets/arcticons_money-manager.png'),
+                color: Colors.white,
+                size: 36,
+              ),
+              onPressed: () {
+                // acción del botón del icono
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> const Ajustes()));
+              },
+            ),
           actions: [
-           IconButton(icon: ImageIcon(
-            AssetImage('assets/arcticons_money-manager.png'),
-            color: Colors.white,
-            size: 36,
-            ),
-            onPressed:() {
-              
-            },
-            ),
-             SizedBox(width: 50),
-            IconButton(icon: Icon(Icons.search, size:36 ),
             
-            onPressed: (){
-              //accion del boton del icono
-            },
+            const SizedBox(width: 50),
+            IconButton(
+              icon: const Icon(Icons.search, size: 36),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Buscar_monedas()));
+              },
             ),
-             SizedBox(width: 50),
-            IconButton(icon: ImageIcon(
-              AssetImage('assets/equipo.png'),
-              size: 36,
+           const SizedBox(width: 50),
+            IconButton(
+              icon: const ImageIcon(
+                 AssetImage('assets/grupo.png'),
+                size: 36,
+              ),
+              onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>const Acerca_de_nosotros()));
+              },
             ),
-            onPressed:(){
-            //accion del boton del icono
-            } ,)
           ],
         ),
+      );
+    
+  }
+}
+  
