@@ -12,7 +12,7 @@ class CarteraScreen extends StatelessWidget {
       ),
       body: const Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SaldoWidget(saldo: 1000.0),
           ],
