@@ -21,7 +21,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Inicializa los servicios
     final profileService = ProfileService();
     final authService = AuthService();
     return MultiProvider(
@@ -36,7 +35,7 @@ class MainApp extends StatelessWidget {
           '/login': (context) => const LoginScreen(),
           '/register': (context) => const RegistrationScreen(),
           '/home': (context) => const HomeScreen(),
-          '/depositar': (context) => DepositarDinero(), // Agrega esta línea
+          '/depositar': (context) => DepositarDinero(),
         },
       ),
     );

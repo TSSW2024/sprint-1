@@ -28,7 +28,6 @@ class SaldoWidgetState extends State<SaldoWidget> {
       child: Align(
         alignment: Alignment.center,
         child: Container(
-          // margin: const EdgeInsets.only(top: 100), // Esta línea ha sido eliminada
           width: 373,
           height: 100,
           padding: const EdgeInsets.all(10),
@@ -87,7 +86,6 @@ class SaldoWidgetState extends State<SaldoWidget> {
                   Container(
                     width: 120,
                     child: ElevatedButton(
-                      // Asegúrate de que ElevatedButton sea el hijo del Container
                       onPressed: () {
                         Navigator.push(
                           context,
