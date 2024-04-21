@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-void main() {
-  runApp(MyApp());
-}
+
+
+void main()=>runApp(const MyApp());
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,18 +11,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title:"acerca de nosotros",
-      home: Acerca_de_nosotros(),
+      home: Acercadenosotros(),
     );
   }
 }
-class Acerca_de_nosotros extends StatefulWidget {
-  const Acerca_de_nosotros({super.key});
+class Acercadenosotros extends StatefulWidget {
+  const Acercadenosotros({super.key});
 
   @override
-  State<Acerca_de_nosotros> createState() => _Acerca_de_nosotrosState();
+  State<Acercadenosotros> createState() => _AcercadenosotrosState();
 }
 
-class _Acerca_de_nosotrosState extends State<Acerca_de_nosotros> {
+class _AcercadenosotrosState extends State<Acercadenosotros> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

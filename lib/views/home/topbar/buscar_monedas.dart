@@ -1,9 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-void main() {
-  runApp(MyApp());
-}
+void main() =>runApp(const MyApp());
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,21 +10,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title:"buscar monedas",
-      home: Buscar_monedas(),
+      home: Buscarmonedas(),
     );
   }
 }
-class Buscar_monedas extends StatefulWidget {
-  const Buscar_monedas({super.key});
+class Buscarmonedas extends StatefulWidget {
+  const Buscarmonedas({super.key});
 
   @override
-  State<Buscar_monedas> createState() => _Buscar_monedasState();
+  State<Buscarmonedas> createState() => _BuscarmonedasState();
 }
 
-class _Buscar_monedasState extends State<Buscar_monedas> {
+class _BuscarmonedasState extends State<Buscarmonedas> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body:
       Center(child: Text("buscador de monedas"),),
     );

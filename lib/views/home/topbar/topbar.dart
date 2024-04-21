@@ -1,9 +1,10 @@
 import 'package:ejemplo_1/views/home/topbar/buscar_monedas.dart';
 import 'package:flutter/material.dart';
 import 'package:ejemplo_1/views/home/topbar/ajustes.dart';
-import 'package:ejemplo_1/views/home/topbar/Acerca_de_nosotros.dart';
-void main() =>runApp(MyApp());
+import 'package:ejemplo_1/views/home/topbar/nosotros.dart';
+void main() =>runApp(const MyApp());
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -42,7 +43,7 @@ class _InicioState extends State<Inicio> {
             IconButton(
               icon: const Icon(Icons.search, size: 36),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Buscar_monedas()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const Buscarmonedas()));
               },
             ),
            const SizedBox(width: 50),
@@ -52,7 +53,7 @@ class _InicioState extends State<Inicio> {
                 size: 36,
               ),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>const Acerca_de_nosotros()));
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>const Acercadenosotros()));
               },
             ),
           ],
