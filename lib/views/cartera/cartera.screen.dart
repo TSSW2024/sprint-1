@@ -23,7 +23,7 @@ class CarteraScreen extends StatelessWidget {
             AnuncioWidget(
               titulo: anuncioSeleccionado['titulo']!,
               subtitulo: anuncioSeleccionado['subtitulo']!,
-              icono: Icons.explore, // icono de prueba
+              imagenUrl: anuncioSeleccionado['icono']!,
               url: anuncioSeleccionado['url']!,
             ), // @moizefal4
           ],

@@ -1,42 +1,40 @@
-// ignore_for_file: use_super_parameters, depend_on_referenced_packages
-
 import 'package:flutter/material.dart';
 import 'mockup_recomendaciones.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
 
-final Map<String, String> anuncioSeleccionado = seleccionarAnuncioAleatorio(datosAnuncios);
+final Map<String, String> anuncioSeleccionado =
+    seleccionarAnuncioAleatorio(datosAnuncios);
 
-Map<String, String> seleccionarAnuncioAleatorio(List<Map<String, String>> datosAnuncios) {
+Map<String, String> seleccionarAnuncioAleatorio(
+    List<Map<String, String>> datosAnuncios) {
   final random = Random();
   final index = random.nextInt(datosAnuncios.length);
   return datosAnuncios[index];
-} // elije aleatoreamente que anuncio mostrar en pantalla
-
-
+}
 
 void _launchURL(String url) async {
-  Uri uri = Uri.parse(url); // Convertir la cadena de URL a un objeto Uri
-  if (await canLaunchUrl(uri)) {
-    await launchUrl(uri);
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url));
   } else {
-    throw 'No se pudo abrir el enlace $url';
+    throw 'Could not launch $url';
   }
 }
 
 class AnuncioWidget extends StatelessWidget {
   final String titulo;
   final String subtitulo;
-  final IconData icono;
+  final String
+      imagenUrl; // Cambiado de IconData a String para la URL de la imagen
   final String url;
 
   const AnuncioWidget({
-    Key? key,
+    super.key, // Añadí 'Key?' para corregir el error de compilación
     required this.titulo,
     required this.subtitulo,
-    required this.icono,
+    required this.imagenUrl,
     required this.url,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,8 @@ class AnuncioWidget extends StatelessWidget {
           children: [
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.2,
-              child: Icon(icono), // muestra un icono a eleccion
+              child: Image.network(
+                  imagenUrl), // Cambiado a Image.network para cargar la imagen desde una URL
             ),
             Container(
               width: MediaQuery.of(context).size.width * 0.7,
@@ -66,7 +65,7 @@ class AnuncioWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    titulo,  // muestra un titulo a eleccion
+                    titulo,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.0,
@@ -74,7 +73,7 @@ class AnuncioWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 5.0),
                   Text(
-                    subtitulo,  // muestra un subtitulo a eleccion
+                    subtitulo,
                     style: const TextStyle(
                       fontSize: 14.0,
                     ),
