@@ -1,10 +1,12 @@
+import 'package:ejemplo_1/widgets/social.login.dart';
+import 'package:ejemplo_1/widgets/text.form.global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../viewmodels/auth.viewmodel.dart';
 import '../../widgets/elevated_button.widget.dart';
 import '../../widgets/loading.widget.dart';
-import '../../widgets/text_field.widget.dart';
+//// import '../../widgets/text_field.widget.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -64,53 +66,91 @@ class LoginScreenState extends State<LoginScreen> {
     });
 
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Iniciar Sesión',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                Container(
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'Logo',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              CustomTextField(
-                controller: _emailController,
-                labelText: 'Correo electrónico',
-                keyboardType: TextInputType.emailAddress,
-              ),
-              CustomTextField(
-                controller: _passwordController,
-                labelText: 'Contraseña',
-                obscureText: true,
-              ),
-              const SizedBox(height: 16),
-              CustomElevatedButton(
-                icon: Icons.login,
-                text: 'Iniciar sesión',
-                onPressed: () {
-                  authViewModel.login(
-                    _emailController.text,
-                    _passwordController.text,
-                  );
-                },
-              ),
-              const SizedBox(height: 16),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/register');
-                },
-                child: const Text(
-                  '¿No tienes cuenta? Regístrate aquí',
-                  style: TextStyle(color: Colors.blue),
+                const SizedBox(height: 50),
+
+                const Text(
+                  'Inicia sesión con tu cuenta',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 15),
+
+                //// Email input
+                TextFormGlobal(
+                  controller: _emailController,
+                  text: 'Email',
+                  obscure: false,
+                  textInputType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 10),
+
+                //// Password Input
+                TextFormGlobal(
+                  controller: _passwordController,
+                  text: 'Password',
+                  obscure: true,
+                  textInputType: TextInputType.text,
+                ),
+                const SizedBox(height: 10),
+
+                CustomElevatedButton(
+                  icon: Icons.login,
+                  text: 'Iniciar sesión',
+                  onPressed: () {
+                    authViewModel.login(
+                      _emailController.text,
+                      _passwordController.text,
+                    );
+                  },
+                ),
+                const SizedBox(height: 25),
+
+                const SocialLogin(),
+              ],
+            ),
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 50,
+        color: Colors.white,
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/register');
+              },
+              child: const Text(
+                '¿No tienes cuenta? Regístrate aquí',
+                style: TextStyle(color: Colors.blue),
+              ),
+            ),
+          ],
         ),
       ),
     );
