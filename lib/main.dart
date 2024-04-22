@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 
 import 'viewmodels/auth.viewmodel.dart';
@@ -8,6 +7,7 @@ import 'viewmodels/profile.viewmodel.dart';
 import 'views/home/home.screen.dart';
 import 'views/login/login.screen.dart';
 import 'views/register/register.screen.dart';
+import 'views/depositar/depositar_dinero.dart';
 
 import 'services/profile.service.dart';
 import 'services/auth.service.dart';
@@ -17,11 +17,10 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  const MainApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // Inicializa los servicios
     final profileService = ProfileService();
     final authService = AuthService();
     return MultiProvider(
@@ -36,6 +35,7 @@ class MainApp extends StatelessWidget {
           '/login': (context) => const LoginScreen(),
           '/register': (context) => const RegistrationScreen(),
           '/home': (context) => const HomeScreen(),
+          '/depositar': (context) => DepositarDinero(),
         },
       ),
     );

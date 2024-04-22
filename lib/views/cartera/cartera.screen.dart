@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import '../home/saldo/saldo.dart';
 import '../cartera/recomendaciones_ad.dart'; // muestra un anuncio en pantalla @moizefal4
 
 class CarteraScreen extends StatelessWidget {
@@ -16,6 +17,7 @@ class CarteraScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SaldoWidget(saldo: 1000.0),
             // ignore: prefer_const_constructors
             Text('Cartera page'),
             AnuncioWidget(
