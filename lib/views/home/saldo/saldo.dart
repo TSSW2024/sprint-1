@@ -5,7 +5,7 @@ import '../../depositar/depositar_dinero.dart';
 class SaldoWidget extends StatefulWidget {
   final double saldo;
 
-  const SaldoWidget({Key? key, required this.saldo}) : super(key: key);
+  const SaldoWidget({super.key, required this.saldo});
 
   @override
   SaldoWidgetState createState() => SaldoWidgetState();
@@ -83,23 +83,22 @@ class SaldoWidgetState extends State<SaldoWidget> {
                                         fontSize: 36, color: Colors.white)),
                               )),
                     ),
-                  Container(
+                  SizedBox(
                     width: 120,
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DepositarDinero()),
+                              builder: (context) => const DepositarDinero()),
                         );
                       },
-                      child: Text("Depositar",
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 16)),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             const Color(0xFF515DE2)),
                       ),
+                      child: const Text("Depositar",
+                          style: TextStyle(color: Colors.white, fontSize: 16)),
                     ),
                   ),
                 ],

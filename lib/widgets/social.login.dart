@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialLogin extends StatelessWidget {
-  const SocialLogin({Key? key}) : super(key: key);
+  const SocialLogin({super.key});
 
   @override
   Widget build(BuildContext context) {

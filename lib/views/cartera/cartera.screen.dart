@@ -17,7 +17,7 @@ class CarteraScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SaldoWidget(saldo: 1000.0),
+            const SaldoWidget(saldo: 1000.0),
             // ignore: prefer_const_constructors
             Text('Cartera page'),
             AnuncioWidget(

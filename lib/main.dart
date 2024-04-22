@@ -17,7 +17,7 @@ void main() {
 }
 
 class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
           '/login': (context) => const LoginScreen(),
           '/register': (context) => const RegistrationScreen(),
           '/home': (context) => const HomeScreen(),
-          '/depositar': (context) => DepositarDinero(),
+          '/depositar': (context) => const DepositarDinero(),
         },
       ),
     );

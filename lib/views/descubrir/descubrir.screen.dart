@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 
 final List _monedas = [
   {
@@ -41,7 +39,7 @@ class DescubrirScreen extends StatelessWidget {
               length: 3,
               child: Column(
                 children: [
-                  Container(
+                  SizedBox(
                       width: anchoActual,
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
@@ -62,8 +60,8 @@ class DescubrirScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: Colors.grey, width: 2),
                       ),
-                      indicatorPadding: EdgeInsets.all(10),
-                      tabs: [
+                      indicatorPadding: const EdgeInsets.all(10),
+                      tabs: const [
                         Tab(
                           text: 'Top',
                         ),
@@ -74,19 +72,19 @@ class DescubrirScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: altoActual * 0.5,
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: TabBarView(
                         children: [
                           ListView.builder(
                               itemCount: _monedas.length,
                               itemBuilder: (context, index) {
-                                return ListaMonedas(index);
+                                return listaMonedas(index);
                               }),
-                          Text('Top Declinerss'),
-                          Text('Nuevos'),
+                          const Text('Top Declinerss'),
+                          const Text('Nuevos'),
                         ],
                       ),
                     ),
@@ -98,11 +96,11 @@ class DescubrirScreen extends StatelessWidget {
     );
   }
 
-  Container ListaMonedas(int index) {
+  Container listaMonedas(int index) {
     return Container(
       height: 60,
-      margin: EdgeInsets.all(8),
-      padding: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -111,7 +109,7 @@ class DescubrirScreen extends StatelessWidget {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -120,34 +118,28 @@ class DescubrirScreen extends StatelessWidget {
         children: [
           Flexible(
               flex: 1,
-              child: Container(
-                child: Image.asset(
-                  _monedas[index]["icon"],
-                  width: 50,
-                  height: 50,
-                ),
+              child: Image.asset(
+                _monedas[index]["icon"],
+                width: 50,
+                height: 50,
               )),
           Flexible(
               flex: 3,
               fit: FlexFit.tight,
-              child: Container(
-                child: Text(
-                  _monedas[index]["moneda"],
-                  style: TextStyle(fontSize: 20),
-                ),
+              child: Text(
+                _monedas[index]["moneda"],
+                style: const TextStyle(fontSize: 20),
               )),
           Flexible(
               flex: 1,
-              child: Container(
-                child: Column(
-                  children: [
-                    Text(
-                      _monedas[index]["value"].toString(),
-                      style: TextStyle(color: Colors.green),
-                    ),
-                    Text(_monedas[index]["ratio"].toString()),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    _monedas[index]["value"].toString(),
+                    style: const TextStyle(color: Colors.green),
+                  ),
+                  Text(_monedas[index]["ratio"].toString()),
+                ],
               )),
         ],
       ),
